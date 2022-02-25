@@ -40,16 +40,24 @@ a {
     max-height: 300px;
     max-width: 300px;
 }
-
-.info_card{
-    background: rgb(248, 248, 248);
-    min-height: 100px;
-    padding: 10px;
-    /* margin: 5px; */
-}
-.col{
+.model__info > .col{
     padding: calc(var(--bs-gutter-x) * .2);
     /* padding-left: calc(var(--bs-gutter-x) * .2); */
+}
+.model__info > .col > .info_card{
+    background: rgb(238, 241, 241);
+    min-height: 100px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    /* margin: 5px; */
+}
+
+.model__extra {
+    text-align: right;
 }
 @media (max-width: 600px) {
     .navigation > div{
