@@ -108,56 +108,51 @@ var model_information={
         ],
         "extra": '\
             <h4>¿Qué errores tenía el modelo atómico de Bohr?</h4>\
-            <ul>\
-                <li>\
-                Dado que los electrones son muy rápidos, deben considerarse no solo en la física clásica sino también en la teoría de la relatividad.\
-                <\\li>\
-                <li>\
-                El modelo atómico de Bohr sólo puede explicar los espectros de átomos de un solo electrón (hidrógeno). No puede explicar los espectros de átomos de varios electrones.\
-                <\\li>\
-                <li>\
-                La dualidad onda-partícula (hipótesis de De Broglie) no se tuvo en cuenta en el modelo atómico de Bohr .\
-                <\\li>\
-                <li>\
-                Según el principio de incertidumbre de Werner Heisenberg, la ubicación y la velocidad del electrón en el átomo no se pueden determinar simultáneamente con absoluta certeza. Por tanto, el concepto de "órbita" es erróneo.\
-                <\\li>\
-                <li>\
-                No menciona los neutrones.\
-                <\\li>\
-            <\\ul>\
+            - Dado que los electrones son muy rápidos, deben considerarse no solo en la física clásica sino también en la teoría de la relatividad.<br>\
+            - El modelo atómico de Bohr sólo puede explicar los espectros de átomos de un solo electrón (hidrógeno).<br>\
+            - No puede explicar los espectros de átomos de varios electrones.<br>\
+            - La dualidad onda-partícula (hipótesis de De Broglie) no se tuvo en cuenta en el modelo atómico de Bohr.<br>\
+            - Según el principio de incertidumbre de Werner Heisenberg, la ubicación y la velocidad del electrón en el átomo no se pueden determinar simultáneamente con absoluta certeza. Por tanto, el concepto de "órbita" es erróneo.<br>\
+            - No menciona los neutrones.<br>\
         ',
     },
     "Schrodinger": {
         "title": "Schrödinger",
         "image": "Schrodinger.png",
         "properties": [
-            "<b></b>\
-            <br>\
-            \
+            "\
+            Inicialmente, el modelo de Schrödinger consideraba que los electrones actuaban como ondas de materia.\
             ",
-            "<b></b>\
-            <br>\
-            \
+            "\
+            La ecuación que presentó Schrödinger indica la evolución de esta onda material en el espacio y el tiempo.\
             ",
-            "<b></b>\
-            <br>\
-            \
+            "\
+            Más adelante, Max Born realizó una interpretación probabilística de la función de onda de los electrones. \
             ",
-            "<b></b>\
-            <br>\
-            \
+            "\
+            Por el principio de incertidumbre de Heisenberg no se podían conocer la cantidad de movimiento y la posición a la vez.\
+            ",
+            "\
+            El modelo se puede representar como una nube de puntos alrededor del núcleo, donde la probabilidad de encontrar el electrón aumenta con la densidad de puntos. \
+            ",
+            "\
+            Schrödinger introdujo por primera vez el concepto de niveles de subenergía.\
+            ",
+            "\
+            Predice la variación de los niveles energéticos de los electrones cuando existe un campo eléctrico o un campo magnético.\
+            ",
+            "\
+            Describe las líneas de emisión espectrales, tanto de átomos ionizados como neutros.\
             ",
         ],
-        "extra": '',
+        "extra": '\
+            <h4>¿Qué errores tenía el modelo atómico de Schrödinger?</h4>\
+            - Carece de los efectos relativistas de los electrones rápidos.<br>\
+            - No toma en cuenta el espín electrónico.<br>\
+            - No puede explicar por qué un electrón en estado cuántico excitado puede decaer hacia un nivel energético inferior libre.<br>\
+        ',
     }
 }
-// var properties=[
-//     "Toda la materia está hecha de átomos.<br>Absolutamente todo lo que conocemos está hecho de átomos tanto en la tierra como en el universo conocido. Cada uno de los elementos está hecho de átomos.",
-//     "Los átomos son indivisibles e indestructibles.<br>Dalton pensaba que los átomos eran las partículas más pequeñas de la materia y eran químicamente indestructibles.",
-//     "Todos los átomos de un elemento dado son idénticos.<br>Para un elemento determinado, todos sus átomos tienen la misma masa y las mismas características.",
-//     "Todos los átomos de un elemento dado son idénticos.<br>Para un elemento determinado, todos sus átomos tienen la misma masa y las mismas características.",
-//     "Los átomos de diferentes elementos varían en masa y propiedades.<br>Cada elemento tiene átomos de características y masa diferentes.",
-// ];
 
 
 // properties.forEach(property => {
@@ -171,20 +166,34 @@ var model_information={
 
 parent_cards.innerHTML=""
 var content
+
 function changeModel(model_name) {
+    /* This function change the information of the atomic model rendered */
+
+    // Change the image of the atomic model
     image.setAttribute("src", "./images/"+model_information[model_name]["image"])
+    
+    // Change the title of the atomic model
     title.innerHTML="Modelo atómico de "+model_information[model_name]["title"]
+
+    // Change the extra information of the atomic model
     extra_info.innerHTML=model_information[model_name]["extra"]
+
     parent_cards.innerHTML=""
     model_information[model_name]["properties"].forEach(property => {
-                // console.log("Card: ", new_card)
-                // console.log("new card child: ", new_card.childNodes[1])
+        /* For all saved property, will render an card with it information */
+        
+        // Clone the card template for create a new card
         new_card=info_card.cloneNode(true)
+
+        // Add the propery to a p tag
         content=document.createElement("p")
         content.innerHTML=property
-        // console.log(content)
+        
+        // Add the content to the new card
         new_card.childNodes[1].appendChild(content)
-
+        
+        // Add the new card to the parent container
         parent_cards.appendChild(new_card);
     });
 }
