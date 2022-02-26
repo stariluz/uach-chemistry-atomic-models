@@ -82,24 +82,50 @@ var model_information={
         "title": "Bohr",
         "image": "Bohr.png",
         "properties": [
-            "<b></b>\
-            <br>\
-            \
+            "\
+            Los electrones de un átomo se mueven en órbitas a cierta distancia del núcleo.\
             ",
-            "<b></b>\
-            <br>\
-            \
+            "\
+            Cada estado estable tiene una energía constante.\
             ",
-            "<b></b>\
+            "<b>A cualquier nivel energético estable, el electrón se mueve en una órbita circular. </b>\
             <br>\
-            \
+            Estas órbitas se denominan niveles de energía o capas.\
             ",
-            "<b></b>\
+            "<b>Mientras el electrón está en uno de sus estados estacionarios, el átomo no emite luz ( radiación).</b>\
             <br>\
-            \
+            Sin embargo, cuando pasa de un nivel de energía alto a un nivel de energía más bajo, emite un cuanto de luz igual a la diferencia de energía entre los niveles.\
+            ",
+            "\
+            Los niveles estables en los que es posible el movimiento de electrones se designan con letras de la K a la Q.\
+            ",
+            "\
+            Cada órbita tiene electrones con distintos niveles de energía obtenida que después se tiene que liberar y por esa razón el electrón va saltando de una órbita a otra hasta llegar a una que tenga el espacio y nivel adecuado.\
+            ",
+            "\
+            Si se le da suficiente energía al electrón, el electrón saltará a un nivel de energía más alto que el nivel de energía en el que se encuentra.\
             ",
         ],
-        "extra": '',
+        "extra": '\
+            <h4>¿Qué errores tenía el modelo atómico de Bohr?</h4>\
+            <ul>\
+                <li>\
+                Dado que los electrones son muy rápidos, deben considerarse no solo en la física clásica sino también en la teoría de la relatividad.\
+                <\\li>\
+                <li>\
+                El modelo atómico de Bohr sólo puede explicar los espectros de átomos de un solo electrón (hidrógeno). No puede explicar los espectros de átomos de varios electrones.\
+                <\\li>\
+                <li>\
+                La dualidad onda-partícula (hipótesis de De Broglie) no se tuvo en cuenta en el modelo atómico de Bohr .\
+                <\\li>\
+                <li>\
+                Según el principio de incertidumbre de Werner Heisenberg, la ubicación y la velocidad del electrón en el átomo no se pueden determinar simultáneamente con absoluta certeza. Por tanto, el concepto de "órbita" es erróneo.\
+                <\\li>\
+                <li>\
+                No menciona los neutrones.\
+                <\\li>\
+            <\\ul>\
+        ',
     },
     "Schrodinger": {
         "title": "Schrödinger",
@@ -156,7 +182,7 @@ function changeModel(model_name) {
         new_card=info_card.cloneNode(true)
         content=document.createElement("p")
         content.innerHTML=property
-        console.log(content)
+        // console.log(content)
         new_card.childNodes[1].appendChild(content)
 
         parent_cards.appendChild(new_card);
