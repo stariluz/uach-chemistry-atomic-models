@@ -14,7 +14,7 @@ body{
     flex-wrap: wrap;
     justify-content: center;
 }
-.navigation > div{
+.navigation > button{
     flex: 0 0 calc(20% - 10px);
     margin: 5px;
     padding: 5px;
@@ -27,6 +27,10 @@ body{
 
     background-color: rgb(21, 195, 201);
     color: rgb(255, 255, 255);
+    border: 0px;
+}
+p {
+    margin-bottom: 0;
 }
 a {
     color: rgb(255, 255, 255);
@@ -60,7 +64,7 @@ a {
     text-align: right;
 }
 @media (max-width: 600px) {
-    .navigation > div{
+    .navigation > button{
         flex: 0 0 calc(50% - 10px);
     }
 }

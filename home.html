@@ -9,21 +9,11 @@
 </head>
 <body>
     <div class="navigation">
-        <div class="">
-            <a href="#" class="button">Modelo atómico de Dalton</a>
-        </div>
-        <div class="">
-            <a href="#" class="button">Modelo atómico de Thomson</a>
-        </div>
-        <div class="">
-            <a href="#" class="button">Modelo atómico de Rutherford</a>
-        </div>
-        <div class="">
-            <a href="#" class="button">Modelo atómico de Bohr</a>
-        </div>
-        <div class="">
-            <a href="#" class="button">Modelo atómico de Schrödinger</a>
-        </div>
+        <button type="button" class="button" onclick="changeModel('Dalton')">Modelo atómico de Dalton</button>
+        <button type="button" class="button" onclick="changeModel('Thomson')">Modelo atómico de Thomson</button>
+        <button type="button" class="button" onclick="changeModel('Rutherford')">Modelo atómico de Rutherford</button>
+        <button type="button" class="button" onclick="changeModel('Bohr')">Modelo atómico de Bohr</button>
+        <button type="button" class="button" onclick="changeModel('Scrhondinger')">Modelo atómico de Schrödinger</button>
     </div>
     <div class="container-fluid mt-3">
         <div class="model row" id="model_id">
@@ -36,29 +26,18 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <div class="row row-cols-2 model__info justify-content-center">
-                    <div class="col">
-                        <div class="info_card shadow-sm rounded-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis voluptas corrupti aliquid ut officia debitis non eveniet delectus. Ut, explicabo quisquam?</div>
-                    </div>
-                    <div class="col">
-                        <div class="info_card shadow-sm rounded-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis voluptas corrupti aliquid ut officia debitis non eveniet delectus. Ut, explicabo quisquam?</div>
-                    </div>
-                    <div class="col">
-                        <div class="info_card shadow-sm rounded-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis voluptas corrupti aliquid ut officia debitis non eveniet delectus. Ut, explicabo quisquam?</div>
-                    </div>
-                    <div class="col">
-                        <div class="info_card shadow-sm rounded-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis voluptas corrupti aliquid ut officia debitis non eveniet delectus. Ut, explicabo quisquam?</div>
-                    </div>
-                    <div class="col">
-                        <div class="info_card shadow-sm rounded-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis voluptas corrupti aliquid ut officia debitis non eveniet delectus. Ut, explicabo quisquam?</div>
+                <div class="row row-cols-2 model__info justify-content-center" id="js_parent_cards">
+                    <div class="col" id="js_info_card_container">
+                        <div class="info_card shadow-sm rounded-lg" id="js_info_card"></div>
                     </div>
                 </div>
             </div>
             <div class="model__extra col-12 col-lg-3 text-center mb-4 mt-3 mt-lg-0 text-lg-end">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis expedita necessitatibus ab tempore reiciendis qui repellendus molestias libero quisquam non architecto rem deserunt a eum accusamus cupiditate, animi modi soluta./p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis expedita necessitatibus ab tempore reiciendis qui repellendus molestias libero quisquam non architecto rem deserunt a eum accusamus cupiditate, animi modi soluta.</p>
             </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
