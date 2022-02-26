@@ -38,8 +38,13 @@ a {
     text-emphasis: none;
 }
 
+.title {
+    font-weight: bolder;
+}
+
 .model__image {
-    background: #5ebb39;
+    /* background: #5ebb39; */
+    box-shadow: 10px 2px 2px 10px #fffebc;
     height: 250px;
     max-height: 300px;
     max-width: 300px;
@@ -51,8 +56,10 @@ a {
 .model__info > .col > .info_card{
     background: rgb(238, 241, 241);
     min-height: 100px;
+    height: 100%;
     padding: 10px;
     text-align: center;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
