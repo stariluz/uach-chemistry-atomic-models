@@ -8,8 +8,8 @@ var parent_cards=document.getElementById("js_parent_cards")
 
 
 // Get card template
-var info_card=document.getElementById("js_info_card_container")
-// console.log("info_card: ", info_card, info_card.childNodes[1])
+var info_card_container=document.getElementById("js_info_card_container")
+//      console.log("info_card_container: ", info_card_container, info_card_container.childNodes[1])
 
 
 var image=document.getElementById("js_image")
@@ -71,15 +71,26 @@ var model_information={
             <br>\
             Esta característica equilibra la carga eléctrica de los electrones haciéndolo eléctricamente neutro. \
             ",
-            "<b>La carga nuclear se identificó como responsable de la dispersión de partículas alfa.</b>\
-            <br>\
-            Los electrones con carga negativa presentes alrededor del átomo no afectan la dispersión de las partículas alfa.\
+            "\
+            Alrededor del núcleo existe un espacio vacío donde los electrones giran en diferentes órbitas.\
             ",
             "\
             Rutherford introdujo el concepto de peso atómico, que anteriormente se había omitido. \
             ",
+            "<b>La carga nuclear se identificó como responsable de la dispersión de partículas alfa.</b>\
+            <br>\
+            Los electrones con carga negativa presentes alrededor del átomo no afectan la dispersión de las partículas alfa.\
+            ",
+            "Su experimento consitió en hacer pasar una partícula α de alta velocidad a través de un átomo de una lámina de oro tomando en cuenta consideraciones energéticas.",
+            "Así dedujo que el radio de la carga central de los átomos de una lámina delgada de oro debió ser menor a 3,4 x 10-14 m. Y como el radio atómico del oro es del orden de 10−10 m concluyó que la carga se concentra en un volumen mínimo en relación con el tamaño atómico."
         ],
-        "extra": 'Rutherford propuso hacer pasar una partícula α de alta velocidad a través de un átomo de una lámina de oro, donde a partir de consideraciones energéticas, Rutherford dedujo que el radio de la carga central de los átomos de un serie de láminas delgadas de oro debió ser menor que 3,4 x 10-14 m. Y ya que el radio atómico del oro era del orden de 10 −10 m Rutherford concluyó que la carga debe concentrarse en un volumen muy pequeño en relación con el tamaño atómico.',
+        "extra": "\
+            <h4>¿Qué errores tenía?</h4>\
+            - No infiere en la estabilidad del átomo, pues si los electrones giraran libremente alrededor del nucleo, tendrían que caer en cierto momento y colapsar el átomo.\
+            - Ignora la distribución de los electrones alrededor del núcleo.\
+            - No explica la discontinuidad del espectro atómico.\
+            - No explica la línea espectral de los átomos.\
+        "
     },
     "Bohr": {
         "title": "Bohr",
@@ -110,7 +121,7 @@ var model_information={
             ",
         ],
         "extra": '\
-            <h4>¿Qué errores tenía el modelo atómico de Bohr?</h4>\
+            <h4>¿Qué errores tenía?</h4>\
             - Dado que los electrones son muy rápidos, deben considerarse no solo en la física clásica sino también en la teoría de la relatividad.<br>\
             - El modelo atómico de Bohr sólo puede explicar los espectros de átomos de un solo electrón (hidrógeno).<br>\
             - No puede explicar los espectros de átomos de varios electrones.<br>\
@@ -149,7 +160,7 @@ var model_information={
             ",
         ],
         "extra": '\
-            <h4>¿Qué errores tenía el modelo atómico de Schrödinger?</h4>\
+            <h4>¿Qué errores tenía?</h4>\
             - Carece de los efectos relativistas de los electrones rápidos.<br>\
             - No toma en cuenta el espín electrónico.<br>\
             - No puede explicar por qué un electrón en estado cuántico excitado puede decaer hacia un nivel energético inferior libre.<br>\
@@ -157,80 +168,85 @@ var model_information={
     }
 }
 
-
-// properties.forEach(property => {
-//             // console.log("Card: ", new_card)
-//             // console.log("new card child: ", new_card.childNodes[1])
-//     new_card=info_card.cloneNode(true)
-//     new_card.childNodes[1].innerHTML=property;
-    
-//     parent_cards.appendChild(new_card);
-// });
-
 parent_cards.innerHTML=""
 var content
 
 function disappearModels(){
-    image.classList.add("disappear")
-    title.classList.add("disappear")
-    extra_info.classList.add("disappear")
-    parent_cards.childNodes.forEach(info_card_container => {
-        info_card_container.classList.add("disappear")
-    })
+    image.classList.remove("appear")
+    title.classList.remove("appear")
+    extra_info.classList.remove("appear")
+    parent_cards.classList.remove("appear")
+    /* parent_cards.childNodes.forEach(info_card_container => {
+        info_card_container.classList.remove("info_card-container--normal")
+    }) */
 }
 function appearModels(){
-    image.classList.remove("disappear")
-    title.classList.remove("disappear")
-    extra_info.classList.remove("disappear")
-    parent_cards.childNodes.forEach(info_card_container => {
-        info_card_container.classList.remove("disappear")
-    })
+    image.classList.add("appear")
+    title.classList.add("appear")
+    extra_info.classList.add("appear")
+    parent_cards.classList.add("appear")
+    /* parent_cards.childNodes.forEach(info_card_container => {
+        info_card_container.classList.add("info_card-container--normal")
+    }) */
 }
 function updateInformation(model_name){
-    // Change the image of the atomic model
-    image.setAttribute("src", "./images/"+model_information[model_name]["image"])
+    return new Promise((resolve, reject)=>{
+        // Change the image of the atomic model
+        image.setAttribute("src", "./images/"+model_information[model_name]["image"])
+                
+        // Change the title of the atomic model
+        title.innerHTML="Modelo atómico de "+model_information[model_name]["title"]
+
+        // Change the extra information of the atomic model
+        extra_info.innerHTML=model_information[model_name]["extra"]
+
+        // Empty the card container
+        parent_cards.innerHTML=""
+
+        model_information[model_name]["properties"].forEach(property => {
+            /* For all saved property, will render an card with it information */
             
-    // Change the title of the atomic model
-    title.innerHTML="Modelo atómico de "+model_information[model_name]["title"]
+            // Clone the card template for create a new card
+            new_card=info_card_container.cloneNode(true)
+            // console.log(new_card)
 
-    // Change the extra information of the atomic model
-    extra_info.innerHTML=model_information[model_name]["extra"]
-    parent_cards.innerHTML=""
-    model_information[model_name]["properties"].forEach(property => {
-        /* For all saved property, will render an card with it information */
-        
-        // Clone the card template for create a new card
-        new_card=info_card.cloneNode(true)
-        new_card.classList.add("disappear")
-        // console.log(new_card)
-
-        // Add the propery to a p tag
-        content=document.createElement("p")
-        content.innerHTML=property
-        
-        // Add the content to the new card
-        new_card.childNodes[1].appendChild(content)
-        
-        // Add the new card to the parent container
-        parent_cards.appendChild(new_card);
+            // Add the propery to a p tag
+            content=document.createElement("p")
+            content.innerHTML=property
+            
+            // Add the content to the new card
+            new_card.childNodes[1].appendChild(content)
+            
+            // Add the new card to the parent container
+            parent_cards.appendChild(new_card);
+        });
+        /* console.log("Terminaste de actualizar") */
+        resolve();
     });
 }
-function changeModel(model_name) {
-    /* This function change the information of the atomic model rendered */
-    disappearModels()
 
-    setTimeout(function(){
-        updateInformation(model_name)
-        setTimeout(function(){
+function changeModel(model_name) {
+    /* This function change the information of the atomic model rendered*/
+    
+    // Active the disappear transition
+    disappearModels()
+    
+    setTimeout(async function(){
+        /* console.log("Toca actualizar...") */
+        try{
+            // Update the cards information
+            await updateInformation(model_name)
+        }finally{
+            // Active the appear transition
             appearModels()
-        },50)
+        }
     },500)
+    // If change the transition time on the css, you will need to change this
 }
 
 // Start of the program
 function startJs(){
     updateInformation("Dalton")
     appearModels()
-    body.classList.remove("start")
 }
 startJs();

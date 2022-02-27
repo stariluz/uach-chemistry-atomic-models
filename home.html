@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
-    <!-- Modal -->
+    <!-- Bibliography modal -->
     <div class="modal fade" id="linksModal" tabindex="-1" aria-labelledby="linksModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
@@ -42,11 +42,18 @@
                             </a>
                         <br><br>
                         </li>
+                        <li>Zita, A. (2020, 2 marzo). Modelo atómico de Rutherford: características y postulados. Toda Materia. Recuperado 26 de febrero de 2022, de
+                            <a href="https://www.todamateria.com/modelo-atomico-de-rutherford/" target="blank">
+                                https://www.todamateria.com/modelo-atomico-de-rutherford/
+                            </a>
+                        <br><br>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Navigation header -->
     <div class="navigation">
         <button type="button" class="btn btn-success button" onclick="changeModel('Dalton')">Modelo atómico de Dalton</button>
         <button type="button" class="btn btn-success button" onclick="changeModel('Thomson')">Modelo atómico de Thomson</button>
@@ -54,6 +61,30 @@
         <button type="button" class="btn btn-success button" onclick="changeModel('Bohr')">Modelo atómico de Bohr</button>
         <button type="button" class="btn btn-success button" onclick="changeModel('Schrodinger')">Modelo atómico de Schrödinger</button>
     </div>
+    <!-- <div class="navigation row row-cols-1 row-cols-sm-5 justify-content-center">
+        <div class="col">
+            <button type="button" class="btn btn-success button" onclick="changeModel('Dalton')">Modelo atómico de Dalton</button>
+            
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-success button" onclick="changeModel('Thomson')">Modelo atómico de Thomson</button>
+            
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-success button" onclick="changeModel('Rutherford')">Modelo atómico de Rutherford</button>
+            
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-success button" onclick="changeModel('Bohr')">Modelo atómico de Bohr</button>
+            
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-success button" onclick="changeModel('Schrodinger')">Modelo atómico de Schrödinger</button>
+            
+        </div>
+    </div> -->
+    
+    <!-- Space for render the atomic models render -->
     <div class="content start container-fluid mt-3" id="js_body">
         <div class="model row" id="model_id">
             <div class="col-12 col-lg-3 p-2 d-flex justify-content-center">
@@ -67,19 +98,19 @@
             </div>
 
             <div class="col-12 col-lg-6">
-                <h1 class="title mt-2 mt-lg-0" id="js_title"></h1>
-                <div class="row row-cols-2 model__info justify-content-center" id="js_parent_cards">
-                    <div class="col info_card--container" id="js_info_card_container">
-                        <div class="info_card rounded-lg text-break" id="js_info_card"></div>
+                <h1 class="title mt-2 mt-lg-0 text-center" id="js_title"></h1>
+                <div class="row row-cols-1 row-cols-sm-2 model__info justify-content-center" id="js_parent_cards">
+                    <div class="col" id="js_info_card_container">
+                        <div class="info_card rounded-lg text-break info_card-container--create" id="js_info_card"></div>
                     </div>
                 </div>
             </div>
-
             <div class="model__extra col-12 col-lg-3 text-center mb-4 mt-3 mt-lg-0 text-lg-end" id="js_extra_info">
                 <p></p>
             </div>
         </div>
     </div>
+    <!-- Footer -->
     <div class="bibliography d-flex">
         <button type="button" class="btn button btn_links" data-bs-toggle="modal" data-bs-target="#linksModal">
             Fuentes bibliograficas

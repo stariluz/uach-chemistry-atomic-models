@@ -92,6 +92,9 @@ p {
     border-radius: 5px;
     /* margin: 5px; */
 }
+/* .model__info > .col > .info_card:last-child {
+    
+} */
 
 .model__extra > h1{
     font-weight: 100;
@@ -144,23 +147,37 @@ p {
 
 
 
-/* ANIMATIONS */
+/* TRANSITIONS */
 .model__image--img,
-.info_card--container,
+.model__info,
 .model__extra,
 .title{
     transition: 0.5s ease all;
-    transform: scale(1);
-    opacity: 1;
-}
-.disappear{
     transform: scale(0.9);
     opacity: 0;
 }
-.content{
+
+.appear{
+    transform: scale(1);
+    opacity: 1;
+}
+/* .content{
     transition: 1s ease all;
     opacity: 1;
 }
 .start{
     opacity: 0;
+} */
+/*
+//// Individual cards transition /////
+
+.info_card-container--create{
+    transition: 0.5s ease all;
+    transform: scale(0.9);
+    opacity: 0;
 }
+.info_card-container--normal{
+    transform: scale(1);
+    opacity: 1;
+}
+*/
