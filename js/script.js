@@ -1,4 +1,7 @@
 
+//Get principal body
+var body=document.getElementById("js_body")
+
 //Get cards container
 var parent_cards=document.getElementById("js_parent_cards")
         // console.log("Parent cards: ",parent_cards)
@@ -167,24 +170,39 @@ var model_information={
 parent_cards.innerHTML=""
 var content
 
-function changeModel(model_name) {
-    /* This function change the information of the atomic model rendered */
-
+function disappearModels(){
+    image.classList.add("disappear")
+    title.classList.add("disappear")
+    extra_info.classList.add("disappear")
+    parent_cards.childNodes.forEach(info_card_container => {
+        info_card_container.classList.add("disappear")
+    })
+}
+function appearModels(){
+    image.classList.remove("disappear")
+    title.classList.remove("disappear")
+    extra_info.classList.remove("disappear")
+    parent_cards.childNodes.forEach(info_card_container => {
+        info_card_container.classList.remove("disappear")
+    })
+}
+function updateInformation(model_name){
     // Change the image of the atomic model
     image.setAttribute("src", "./images/"+model_information[model_name]["image"])
-    
+            
     // Change the title of the atomic model
     title.innerHTML="Modelo atómico de "+model_information[model_name]["title"]
 
     // Change the extra information of the atomic model
     extra_info.innerHTML=model_information[model_name]["extra"]
-
     parent_cards.innerHTML=""
     model_information[model_name]["properties"].forEach(property => {
         /* For all saved property, will render an card with it information */
         
         // Clone the card template for create a new card
         new_card=info_card.cloneNode(true)
+        new_card.classList.add("disappear")
+        // console.log(new_card)
 
         // Add the propery to a p tag
         content=document.createElement("p")
@@ -197,3 +215,22 @@ function changeModel(model_name) {
         parent_cards.appendChild(new_card);
     });
 }
+function changeModel(model_name) {
+    /* This function change the information of the atomic model rendered */
+    disappearModels()
+
+    setTimeout(function(){
+        updateInformation(model_name)
+        setTimeout(function(){
+            appearModels()
+        },50)
+    },500)
+}
+
+// Start of the program
+function startJs(){
+    updateInformation("Dalton")
+    appearModels()
+    body.classList.remove("start")
+}
+startJs();

@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,200;0,300;0,600;0,700;0,900;1,300;1,500;1,700;1,900&display=swap');
+
 *{
     font-family: 'Roboto Serif', sans-serif;
     box-sizing: border-box;
+    font-style: italic;
+    font-weight: 100;
 }
 body{
     width: 100%;
@@ -25,14 +28,33 @@ body{
     align-items: center;
     justify-content: center;
 
-    background-color: rgb(21, 195, 201);
+    background-color: rgb(7, 121, 73);
     color: rgb(255, 255, 255);
     border: 0px;
+    transition: 0.2s ease all;
+    transform: scale(1);
+}
+.navigation > button:hover{
+    transform: scale(1);
+}
+.navigation > button:hover{
+    background-color: rgb(17, 148, 94);
+    color: white;
+    transform: scale(1.05);
+}
+.navigation > button:active{
+    background-color: rgb(7, 63, 39);
+    color: white;
+    transform: scale(1);
+}
+.navigation > button:focus{
+    background-color: rgb(17, 148, 94);
+    color: white;
 }
 p {
     margin-bottom: 0;
 }
-a {
+.navigation a {
     color: rgb(255, 255, 255);
     text-decoration: none;
     text-emphasis: none;
@@ -41,13 +63,17 @@ a {
 .title {
     font-weight: bolder;
 }
-
 .model__image {
     /* background: #5ebb39; */
-    box-shadow: 10px 2px 2px 10px #fffebc;
+    box-shadow: -10px 2px 10px 10px #fffed3;
     height: 250px;
     max-height: 300px;
     max-width: 300px;
+    transition: 0.2s ease all;
+    transform: scale(1);
+}
+.model__image:hover{
+    transform: scale(1.05);
 }
 .model__info > .col{
     padding: calc(var(--bs-gutter-x) * .2);
@@ -67,11 +93,74 @@ a {
     /* margin: 5px; */
 }
 
-.model__extra {
-    text-align: right;
+.model__extra > h1{
+    font-weight: 100;
+}
+
+.modal__title {
+    font-weight: 500;
+    font-style: italic !important;
+}
+.modal-body li a{
+    font-style: italic !important;
+}
+.modal-content *{
+    font-style: normal;
+}
+.bibliography {
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(112, 133, 138);
+    color: white;
+    border-radius: 0px 15px 0px 0px;
+}
+.bibliography > button{
+    border-radius: 0px 15px 0px 0px;
+    background-color: black;
+    color: white;
+    border: 0;
+    transition: 0.2s ease all;
+    transform: scale(1);
+}
+.bibliography > button:hover{
+    background-color: rgb(28, 30, 34);
+    color: white;
+    transform: scale(1.05);
+}
+.bibliography > button:active{
+    background-color: rgb(18, 53, 73);
+    color: white;
+    transform: scale(1);
+}
+.bibliography > button:focus{
+    background-color: rgb(18, 53, 73);
+    color: white;
 }
 @media (max-width: 600px) {
     .navigation > button{
         flex: 0 0 calc(50% - 10px);
     }
+}
+
+
+
+/* ANIMATIONS */
+.model__image--img,
+.info_card--container,
+.model__extra,
+.title{
+    transition: 0.5s ease all;
+    transform: scale(1);
+    opacity: 1;
+}
+.disappear{
+    transform: scale(0.9);
+    opacity: 0;
+}
+.content{
+    transition: 1s ease all;
+    opacity: 1;
+}
+.start{
+    opacity: 0;
 }
